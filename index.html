@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>快乐打字 · Happy Typing</title>
-    <link rel="stylesheet" href="./styles.css?v=20260319-1" />
+    <link rel="stylesheet" href="./styles.css?v=20260319-4" />
   </head>
   <body>
     <div class="app">
@@ -73,7 +73,10 @@
 
       <main class="main">
         <section class="panel panel--top">
-          <div class="card card--transparent">
+          <div class="card card--canvas">
+            <canvas id="trackCanvas" width="980" height="280" class="canvas"></canvas>
+          </div>
+          <div class="card card--transparent card--prompt">
             <div id="prompt" class="prompt">
               <div class="prompt__current">
                 <span id="promptDone" class="prompt__done"></span
@@ -82,17 +85,9 @@
               <div id="promptNext" class="prompt__next"></div>
             </div>
           </div>
-          
-          <div class="card card--transparent">
-            <div id="hintText" class="hint">直接按键盘输入（不需要点击输入框）。</div>
-          </div>
         </section>
 
-        <section class="panel panel--bottom">
-          <div class="card card--canvas">
-            <canvas id="trackCanvas" width="980" height="280" class="canvas"></canvas>
-          </div>
-
+        <section class="panel panel--keyboard">
           <div class="card card--keyboard">
             <div id="keyboard" class="keyboard"></div>
           </div>
@@ -116,7 +111,8 @@
       autocapitalize="off"
       spellcheck="false"
     />
+    <div id="hintText" hidden></div>
 
-    <script src="./main.js?v=20260319-2" type="module"></script>
+    <script src="./main.js?v=20260319-5" type="module"></script>
   </body>
 </html>
