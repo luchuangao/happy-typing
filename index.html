@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>快乐打字 · Happy Typing</title>
+    <link rel="stylesheet" href="./styles.css?v=20260319-1" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="controls">
+          <label class="field">
+            <select id="modeSelect" class="field__control">
+              <option value="letters">字母</option>
+              <option value="english">英文</option>
+              <option value="pinyin">汉语拼音</option>
+              <option value="hanzi">汉字</option>
+              <option value="course">课程训练</option>
+            </select>
+          </label>
+          <label class="field" id="courseField" hidden>
+            <select id="courseSelect" class="field__control">
+              <option value="home">01 基准键位：asdfjkl;</option>
+              <option value="home_expand">02 基准键位扩展：asdfghjkl;</option>
+              <option value="home_shift">03 基准键位与 Shift：ASDFGHJKL:</option>
+              <option value="quotes">04 引号：' "</option>
+              <option value="top_row_lower">05 上排键（小写）：qwertyuiop</option>
+              <option value="bottom_row_lower">06 下排键（小写）：zxcvbnm,./</option>
+              <option value="top_row_upper">05 上排键（大写）：QWERTYUIOP</option>
+              <option value="bottom_row_upper">06 下排键（大写）：ZXCVBNM,./?</option>
+              <option value="letters_review">07 复习字母</option>
+              <option value="brackets">08 括号：{}[]<></option>
+              <option value="digits">09 数字键：1234567890</option>
+              <option value="digits_shift">10 数字键与 Shift：!@#$%^&*()</option>
+              <option value="math">11 数学符号键：- = _ +</option>
+              <option value="all_review">12 复习全部</option>
+            </select>
+          </label>
+          <label class="field">
+            <select id="difficultySelect" class="field__control">
+              <option value="easy">简单</option>
+              <option value="normal" selected>普通</option>
+              <option value="hard">困难</option>
+            </select>
+          </label>
+          <label class="field">
+            <select id="themeSelect" class="field__control">
+              <option value="score" selected>统计</option>
+            </select>
+          </label>
+          <label class="field" id="customField" hidden>
+            <input id="customInput" class="field__control" placeholder="输入自定义词语，以空格/逗号/换行分隔" />
+          </label>
+          <div class="switches">
+            <label class="switch">
+              <input type="checkbox" id="sfxToggle" checked />
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+            </label>
+            <label class="switch">
+              <input type="checkbox" id="voiceToggle" checked />
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+            </label>
+          </div>
+          <button id="startBtn" class="btn btn--primary">开始</button>
+          <button id="resetBtn" class="btn" hidden>重置</button>
+          <div id="statusText" hidden></div>
+          <div id="timeText" hidden></div>
+          <div id="speedText" hidden></div>
+          <div id="accText" hidden></div>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="panel panel--top">
+          <div class="card card--transparent">
+            <div id="prompt" class="prompt">
+              <div class="prompt__current">
+                <span id="promptDone" class="prompt__done"></span
+                ><span id="promptTodo" class="prompt__todo"></span>
+              </div>
+              <div id="promptNext" class="prompt__next"></div>
+            </div>
+          </div>
+          
+          <div class="card card--transparent">
+            <div id="hintText" class="hint">直接按键盘输入（不需要点击输入框）。</div>
+          </div>
+        </section>
+
+        <section class="panel panel--bottom">
+          <div class="card card--canvas">
+            <canvas id="trackCanvas" width="980" height="280" class="canvas"></canvas>
+          </div>
+
+          <div class="card card--keyboard">
+            <div id="keyboard" class="keyboard"></div>
+          </div>
+        </section>
+
+        <div class="card card--result" id="resultCard" hidden>
+          <div id="resultText" class="result"></div>
+          <button id="restartBtn" class="btn btn--primary" style="margin-top: 16px; align-self: center;">再来一局</button>
+        </div>
+      </main>
+    </div>
+
+    <noscript>
+      <div class="noscript">需要启用 JavaScript 才能运行游戏。</div>
+    </noscript>
+
+    <input
+      id="typingInput"
+      class="typing typing--hidden"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+    />
+
+    <script src="./main.js?v=20260319-2" type="module"></script>
+  </body>
+</html>
